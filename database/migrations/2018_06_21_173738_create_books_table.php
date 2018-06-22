@@ -20,7 +20,7 @@ class CreateBooksTable extends Migration
         });
 
         Schema::table('users', function (Blueprint $table) {
-            $table->foreign('book_id')->references('id')->on('books')->onUpdate('cascade'); 
+            $table->foreign('book_id')->references('id')->on('books')->onUpdate('cascade'); // foreign - внешн ключ, referances - ссылается на id on  в таблице books
         });
     }
 
