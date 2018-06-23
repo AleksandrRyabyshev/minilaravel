@@ -6,6 +6,8 @@ use App\User;
 use App\UserBook;
 use App\Story;
 use App\BookStory;
+use App\Comment;
+use App\UserComment;
 
 
 class DatabaseSeeder extends Seeder
@@ -94,6 +96,44 @@ class DatabaseSeeder extends Seeder
             $book_story->book_id = 2;
             $book_story->story_id = 2;
             $book_story->save();
+        }
+
+        $field = Comment::find(1);
+        if(is_null($field)) {
+            $comment = new Comment();
+            $comment->id = 1;
+            $comment->label = 'Хрень а не книжка';
+            $comment->comment = 'Я вас засушууу=).. коммент';
+            $comment->save();
+        }
+
+        $field = Comment::find(2);
+        if(is_null($field)) {
+            $comment = new Comment();
+            $comment->id = 2;
+            $comment->label = 'Крутая книжка';
+            $comment->comment = 'Я вас зацелую=).. коммент';
+            $comment->save();
+        }
+
+        $field = UserComment::find(1);
+        if(is_null($field)) {
+            $user_comment = new UserComment();
+            $user_comment->id = 1;
+            $user_comment->user_id = 1;
+            $user_comment->comment_id = 1;
+            $user_comment->book_id = 2;
+            $user_comment->save();
+        }
+
+        $field = UserComment::find(2);
+        if(is_null($field)) {
+            $user_comment = new UserComment();
+            $user_comment->id = 2;
+            $user_comment->user_id = 1;
+            $user_comment->comment_id = 2;
+            $user_comment->book_id = 1;
+            $user_comment->save();
         }
 
     }
