@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/list/books','BookController@getListBooks'); // доваляем по URL list/books потом назв контроллера@название метода в контроллере
+
